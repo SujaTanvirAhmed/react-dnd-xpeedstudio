@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .model-btn {
+            border: none;
+            padding: 30px;
+            background: teal;
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .modal {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.open {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+
+        .modal-bg {
+            position: absolute;
+            background: teal;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-container {
+            border-radius: 10px;
+            background: #fff;
+            position: relative;
+            padding: 30px;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            outline: none;
+            appearance: none;
+            color: red;
+            background: none;
+            border: 0px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque omnis magnam voluptates sunt porro alias earum
+        minus eius voluptas at iste amet assumenda ratione quidem odit vero aspernatur nostrum voluptate enim soluta,
+        saepe vel ipsa distinctio. Dolorum maxime esse debitis similique magnam repellat libero. Magni nihil explicabo
+        beatae ex porro, ad dolore cum eius earum animi alias officiis similique perspiciatis quasi voluptates
+        repellendus? Debitis reprehenderit mollitia saepe quia, hic eaque dicta nam, fugit doloremque exercitationem,
+        animi quis dolores dolorum eligendi eos tempore. Doloribus quos eum, fuga dolorem, hic pariatur non natus,
+        beatae illo deserunt dignissimos explicabo asperiores provident voluptatibus maxime.</p>
+
+    <div class="container">
+        <button class="model-btn" data-modal="modal-one">Open Modal</a>
+    </div>
+
+    <div class="modal" id="modal-one">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container">
+            <h1>Amazing Modal</h1>
+            <h2>Pure Vanilla JavaScript</h2>
+            <button class="modal-close modal-exit">X</button>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        const modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("open");
+                const exits = modal.querySelectorAll(".modal-exit");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("open");
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
