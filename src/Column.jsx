@@ -6,7 +6,7 @@ import Component from "./Component";
 
 const style = {};
 const Column = ({ data, components, handleDrop, path }) => {
-  const ref = useRef(null);
+  const refResizable = useRef(null);
 
   const [{ isDragging }, drag] = useDrag({
     item: {
@@ -21,7 +21,7 @@ const Column = ({ data, components, handleDrop, path }) => {
   });
 
   const opacity = isDragging ? 0 : 1;
-  drag(ref);
+  drag(refResizable);
 
   const renderComponent = (component, currentPath) => {
     return (
@@ -34,11 +34,13 @@ const Column = ({ data, components, handleDrop, path }) => {
     );
   };
 
+
   return (
+
     <div
-      ref={ref}
+      ref={refResizable}
       style={{ ...style, opacity }}
-      className="base draggable column"
+      className="base draggable column resizable"
     >
       {data.id}
       {data.children.map((component, index) => {
@@ -57,6 +59,7 @@ const Column = ({ data, components, handleDrop, path }) => {
           </React.Fragment>
         );
       })}
+
       <DropZone
         data={{
           path: `${path}-${data.children.length}`,

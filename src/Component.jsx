@@ -40,10 +40,10 @@ const Component = ({ data, components, path }) => {
         <div>{component.content}</div>
       </div>
 
-      {/* Modal starts */}
       {
+        // Modal starts
         showModal &&
-        <div className="modal open" id="modal-one">
+        <div className="modal" id="modal-one">
           <div
             className="modal-bg modal-exit"
             onClick={() => { setShowModal(false) }}
@@ -56,8 +56,8 @@ const Component = ({ data, components, path }) => {
             >X</button>
           </div>
         </div>
+        // Modal ends
       }
-      {/* Modal ends */}
 
     </>
   );

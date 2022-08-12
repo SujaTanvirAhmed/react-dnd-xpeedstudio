@@ -11,6 +11,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.5.11",
     "classnames": "2.2.6",
     "immutability-helper": "^3.0.0",
     "lodash": "4.17.15",

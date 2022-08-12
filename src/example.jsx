@@ -15,7 +15,61 @@ import {
 import { SIDEBAR_ITEMS, SIDEBAR_ITEM, COMPONENT, COLUMN } from "./constants";
 import shortid from "shortid";
 
+// 
+// React table
+// import {
+//   createTable,
+//   useTableInstance,
+//   getCoreRowModel,
+// } from "@tanstack/react-table";
+// const STUDENTS = [
+//   {
+//     id: 1,
+//     name: "Adhiraj",
+//     age: 13
+//   },
+//   {
+//     id: 2,
+//     name: "Mihiraj",
+//     age: 19
+//   },
+//   {
+//     id: 3,
+//     name: "Shudhiraj",
+//     age: 33
+//   }
+// ];
+// const table = createTable();
+// const defaultData = [...STUDENTS];
+// const defaultColumns = [
+//   table.createDataColumn("id", {
+//     id: "Id",
+//   }),
+//   table.createDataColumn("name", {
+//     id: "Name",
+//   }),
+//   table.createDataColumn("age", {
+//     id: "Age",
+//   })
+// ];
+// 
+// 
 const Container = () => {
+
+  // 
+  // React table
+  // const [data, setData] = useState([...defaultData]);
+  // const [columns, setColumns] = useState([...defaultColumns]);
+
+  // const instance = useTableInstance(table, {
+  //   data,
+  //   columns,
+  //   getCoreRowModel: getCoreRowModel(),
+  // });
+  // console.log("rowModel:", instance.getRowModel());
+  // 
+  // 
+
   const initialLayout = initialData.layout;
   const initialComponents = initialData.components;
   const [layout, setLayout] = useState(initialLayout);
@@ -141,7 +195,6 @@ const Container = () => {
 
       <div className="pageContainer">
         <div className="page">
-
           {
             layout.map((row, index) => {
               const currentPath = `${index}`;
